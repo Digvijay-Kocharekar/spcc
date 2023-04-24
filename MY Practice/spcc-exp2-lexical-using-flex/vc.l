@@ -1,0 +1,25 @@
+%{
+    #include<stdio.h>
+    int v=0,c=0;
+%}
+
+%%
+
+[aeiouAEIOU] {v++;}
+[a-zA-Z] {c++;}
+. { }
+
+%%
+
+int yywrap(void){
+   
+    return 1;
+}
+
+int main()
+{
+    printf("Enter the text :");
+    yylex();
+    printf("No. of vowels : %d \nNo. of Consonents : %d\n",v,c);
+    return 0;
+}
