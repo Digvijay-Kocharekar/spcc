@@ -20,18 +20,9 @@ int yywrap(void){
     return 1;
 }
 
-int main(int argc, char** argv)
+int main()
 {
-    if (argc > 1)
-    {
-        FILE *file;
-        file = fopen(argv[1],"r");
-        if(!file){
-            fprintf(stderr, "Could not open %s\n", argv[1]);
-            exit(1);
-        }
-        yyin = file;
-    }
+    yyin = fopen("input.txt","r");
 
     yylex();
     printf("\nCount of verbs : %d", verbs);
